@@ -1,0 +1,22 @@
+function dateJson(date, format) {
+
+    if (date != undefined && date != "" && date != null) {
+        var currentTime = new Date(parseInt(date.substr(6)));
+        var month = ("0" + (currentTime.getMonth() + 1)).slice(-2);
+        var day = ("0" + currentTime.getDate()).slice(-2);
+        var year = currentTime.getFullYear();
+        var hour = ("0" + currentTime.getHours()).slice(-2);
+        var minute = ("0" + currentTime.getMinutes()).slice(-2);
+        var second = ("0" + currentTime.getSeconds()).slice(-2);
+
+        var newDate;
+
+        if (format == undefined) {
+            newDate = day + '/' + month + '/' + year; // + ' ' + hour + ':' + minute + ":" + second;
+        } else if (format == "US") {
+            newDate = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+        }
+
+        return newDate;
+    }
+}
